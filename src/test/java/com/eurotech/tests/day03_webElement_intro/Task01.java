@@ -5,19 +5,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class VerifyURLChanged {
-
+public class Task01 {
     public static void main(String[] args) throws InterruptedException {
-
         /** Class Task
          * open the chrome browser
          * go to http://eurotech.study/login
          * enter email as eurotech@gmail.com
          * enter password as Test12345!
          * click login button
-         * verify that url has changed
+         * Verify login successfully
+         * verify that Dashboard text is exist
          */
-
         String email = "eurotech@gmail.com";
         String password = "Test12345!";
         WebDriver driver = WebDriverFactory.getDriver("chrome");
@@ -26,34 +24,29 @@ public class VerifyURLChanged {
         WebElement understandBtn = driver.findElement(By.id("rcc-confirm-button"));
         understandBtn.click();
 
-        //Lazy (tembel) way -> click unterstandBtn
-        //driver.findElement(By.id("rcc-confirm-button")).click();
+        WebElement emailBox = driver.findElement(By.id("loginpage-input-email"));
+        emailBox.sendKeys(email);
 
-        WebElement emailInputBox = driver.findElement(By.id("loginpage-input-email"));
-        emailInputBox.sendKeys(email);
-
-        //driver.findElement(By.id("loginpage-input-email")).sendKeys(email);
         WebElement passwordInputBox = driver.findElement(By.id("loginpage-form-pw-input"));
         passwordInputBox.sendKeys(password);
 
         WebElement loginBtn = driver.findElement(By.id("loginpage-form-btn"));
         loginBtn.click();
 
-        Thread.sleep(2000); //Burda beklemek gerekiyor yoksa selenium hizindan dolayi click'ten önceki
-        // Url'yi actualUrl olarak aliyor. Bekleme actualUrl yi almaya zaman taniyor
+        Thread.sleep(2000);
 
-        String expextedUrl = "http://eurotech.study/dashboard";
-        String actualUrl = driver.getCurrentUrl();
-        System.out.println("actualUrl = " + actualUrl);
+        String expectedText = "Dashboard";//gercek projede requerment tan alicaz
+        WebElement dashbord = driver.findElement(By.id("dashboard-h1"));
+        System.out.println("dashbord.getText() = " + dashbord.getText());
+        String actualText = dashbord.getText();
 
-        if (expextedUrl.equals(actualUrl)){
+        if (expectedText.equals(actualText)){
             System.out.println("PASS");
         }else {
             System.out.println("FAIL");
         }
 
         Thread.sleep(2000);
-
         driver.close();
     }
 }

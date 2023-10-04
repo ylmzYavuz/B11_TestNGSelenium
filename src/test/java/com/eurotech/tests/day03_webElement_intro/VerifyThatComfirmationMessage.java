@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class VerifyURLChanged {
+public class VerifyThatComfirmationMessage {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -15,9 +15,8 @@ public class VerifyURLChanged {
          * enter email as eurotech@gmail.com
          * enter password as Test12345!
          * click login button
-         * verify that url has changed
+         * verify that welcome message is "Welcome Teacher"
          */
-
         String email = "eurotech@gmail.com";
         String password = "Test12345!";
         WebDriver driver = WebDriverFactory.getDriver("chrome");
@@ -26,34 +25,32 @@ public class VerifyURLChanged {
         WebElement understandBtn = driver.findElement(By.id("rcc-confirm-button"));
         understandBtn.click();
 
-        //Lazy (tembel) way -> click unterstandBtn
-        //driver.findElement(By.id("rcc-confirm-button")).click();
-
         WebElement emailInputBox = driver.findElement(By.id("loginpage-input-email"));
         emailInputBox.sendKeys(email);
 
-        //driver.findElement(By.id("loginpage-input-email")).sendKeys(email);
         WebElement passwordInputBox = driver.findElement(By.id("loginpage-form-pw-input"));
         passwordInputBox.sendKeys(password);
 
         WebElement loginBtn = driver.findElement(By.id("loginpage-form-btn"));
         loginBtn.click();
+        Thread.sleep(2000);
 
-        Thread.sleep(2000); //Burda beklemek gerekiyor yoksa selenium hizindan dolayi click'ten önceki
-        // Url'yi actualUrl olarak aliyor. Bekleme actualUrl yi almaya zaman taniyor
+        //2 way to get text from web elements
+        //1. way -> getText()--> it will work % 99 and it will return (Int. Quess.)string
+        //2. way -> getAttribute("value")
+        String expectedText = "Welcome Teacher";
+        WebElement welcomeText = driver.findElement(By.id("dashboard-p1"));
+        System.out.println("welcomeText.getText() = " + welcomeText.getText());
 
-        String expextedUrl = "http://eurotech.study/dashboard";
-        String actualUrl = driver.getCurrentUrl();
-        System.out.println("actualUrl = " + actualUrl);
+        String actualText = welcomeText.getText();
 
-        if (expextedUrl.equals(actualUrl)){
+        if (expectedText.equals(actualText)){
             System.out.println("PASS");
         }else {
             System.out.println("FAIL");
         }
-
         Thread.sleep(2000);
-
         driver.close();
+
     }
 }

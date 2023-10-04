@@ -19,11 +19,11 @@ driver.getTitle()--> gets the current title from browser - Browserdaki mevcut ba
 driver.getCurrentUrl() --> gets the url from browser - Browserdaki url yi alır
 driver.getPageSource() --> gets the source code of page - sayfanın kaynak kodunu alır
 
-Tools
+Tools/(Interwiev!!!!)
 JAVA —> it is programming language in which we write  out test - kullandığımız programlama dili
 INTELLIJ—> We use it to write and execute our code/test - kodlarımızı ve testlerimiz çalıştırdığımız IDE
 Library/dependency—> set of prewritten classes, methods which we can add to our framework (pom.xml)
-		   - Kütüphane- pom.xml file ile fameworkümüze eklediğimiz önceden yazılmış classlar topluluğu
+		   - Kütüphane- pom.xml file ile frameworkümüze eklediğimiz önceden yazılmış classlar topluluğu
 Selenium—> Automation tool, library it automates the browser - Otomasyon aracı, browserı automate eden kütüphane
 Maven—> Build Automation tool, we use it to manage dependencies - Otomasyon inşa aracı
 Pom.xml—> Brain of Maven and our framework, we put dependencies, plugins and manage them here - Frameworkün/projenin beyni

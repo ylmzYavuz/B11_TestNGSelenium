@@ -1,0 +1,29 @@
+Day02-Webdriver Basics
+Applications
+Web Based application --> not install your computer (Automate with Selenium)
+		      --> bilgisayara indirilmez, internet ağı üzerinden ulaşılır (Selenium ile automate edilebilir)
+Desktop Application   --> install your computer (Selenium can't automate)
+		      --> Bilgisayara indirilir (Selenium ile automate edilemez)
+Mobile Application    --> install your mobile device (Automate with Appium)
+		      --> Mobil cihaza indirilir (Appium ile automate edilebilir)
+
+Day02 Methods
+driver.get(url)--> navigates the website - websitesine gider
+driver.navigate().to(url) --> navigates the website - websitesine gider
+driver.navigate().back() --> goes back previous website - önceki websitesine gider
+driver.navigate().forward()--> goes forward after goes back - bir sonraki websitesine geri döner
+driver.navigate().refresh()--> refresh the webpage - web sayfasını yeniler
+driver.close() --> close the current tab - içinde bulunulan tab ı kapatır
+driver.quit()--> close all tabs and everything - açık olan bütün tabları kapatır
+driver.getTitle()--> gets the current title from browser - Browserdaki mevcut başlığı/title alır
+driver.getCurrentUrl() --> gets the url from browser - Browserdaki url yi alır
+driver.getPageSource() --> gets the source code of page - sayfanın kaynak kodunu alır
+
+Tools
+JAVA —> it is programming language in which we write  out test - kullandığımız programlama dili
+INTELLIJ—> We use it to write and execute our code/test - kodlarımızı ve testlerimiz çalıştırdığımız IDE
+Library/dependency—> set of prewritten classes, methods which we can add to our framework (pom.xml)
+		   - Kütüphane- pom.xml file ile fameworkümüze eklediğimiz önceden yazılmış classlar topluluğu
+Selenium—> Automation tool, library it automates the browser - Otomasyon aracı, browserı automate eden kütüphane
+Maven—> Build Automation tool, we use it to manage dependencies - Otomasyon inşa aracı
+Pom.xml—> Brain of Maven and our framework, we put dependencies, plugins and manage them here - Frameworkün/projenin beyni

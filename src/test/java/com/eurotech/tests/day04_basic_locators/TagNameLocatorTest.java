@@ -35,6 +35,11 @@ public class TagNameLocatorTest {
 
         System.out.println("eperienceCredentials.getText() = " + eperienceCredentials.getText());//Experience Credentials
 
+        //https://the-internet.herokuapp.com/inputs
+        driver.get("https://the-internet.herokuapp.com/inputs");
+        System.out.println("driver.findElement(By.tagName(\"h3\")).getText() = " + driver.findElement(By.tagName("h3")).getText());
+        System.out.println("driver.findElement(By.tagName(\"p\")).getText() = " + driver.findElement(By.tagName("p")).getText());
+
         driver.close();
 
     }

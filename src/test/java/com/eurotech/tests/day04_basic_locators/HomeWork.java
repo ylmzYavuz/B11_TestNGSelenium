@@ -39,9 +39,6 @@ public class HomeWork {
 
         driver.findElement(By.name("terms_and_conditions")).click();
 
-
         driver.close();
-
-
     }
 }

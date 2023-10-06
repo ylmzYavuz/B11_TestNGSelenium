@@ -13,6 +13,7 @@ public class IdLocatorTest {
         Faker faker = new Faker();
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://demoqa.com/text-box");
+        driver.manage().window().maximize();
 
         WebElement userName = driver.findElement(By.id("userName"));
         userName.sendKeys(faker.name().firstName());

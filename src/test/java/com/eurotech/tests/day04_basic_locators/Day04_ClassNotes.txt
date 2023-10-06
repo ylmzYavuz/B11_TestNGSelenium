@@ -1,0 +1,83 @@
+Day04_ClassNotes  -  BASIC LOCATORS
+
+    Web Elements
+    getAttribute()
+    findElement()
+    sendkeys()
+    getText()
+    getTitle()
+    getCurrentUrl()
+___________________________________________________________________________
+
+    How to identify web elements?
+
+        Navigate to website
+        Open the source (right click-->inspect)
+        Press ctrl+F (windows) / command+F (macOS)
+        Find the unique property for the element (1 of 1)
+
+    Keywords
+
+        driver--> our web page
+        driver.findElement()-->method is used to find webElement
+        "By" is a selenium class for locators
+
+_____________________________________________________________________________
+
+BASIC LOCATORS
+
+    We have 8 different locators in Selenium.
+
+        id --> takes id attribute's value
+            It is always unique 99%.
+            It is the first locator we are looking for.
+            Check it is dynamic or static. If it is static, we can use it.
+            How to understand id value is static or not?
+            After inspecting the webElemment and finding value, refresh the web page.
+            If the value is changing we can NOT USE, refresh couple times, always be sure.
+
+        name --> takes name attribute's value
+            If we can not find or use id locator we look for the name locator.
+            name locator is not dynamic 99%.
+            → name locator can be duplicate ( radio button )
+
+        tagName --> takes tag
+            tagName if we can not find id or name we look for tagName
+            Selenium reads the source code from top the button
+            If your locators match with one webelement, selenium stop there
+            For the second element selenium starts again from the top
+            If there are multiple tagNames, we cannot point the second one
+            We can NOT use index when we use tagName locator
+
+
+        className --> takes class attribute's value
+            If there is a space in the value of class attribute, we can not use className locator
+            We will use it later to locate multiple elements in one shot
+
+        linkText --> takes exact text of the link
+            Using full and exact text or link to locate link webElement on the web page.
+            Seems like .equals() method in Java
+
+        partialLinkText --> takes partial text of the link
+            Using part of the linktext to locate the link webElement
+            Part of the link must be unique text part
+            Seems like .contains() method in Java
+
+
+Homework
+/** Class Task
+ *  go to the url -  "https://www.browserstack.com/users/sign_up"
+ *  maximize the window --> driver.manage().window().maximize();
+ *  accept cookies if any,
+ *  fill in the blanks with the faker class
+ *  click "Term of service" checkbox
+ *  and close the window
+ *
+ *  hint: u can use any locator you want
+ *
+ */
+
+
+        xpath (1 day class)
+
+        cssSelector/css   (1 day class)

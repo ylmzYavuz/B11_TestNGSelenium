@@ -57,6 +57,7 @@ BASIC LOCATORS
         linkText --> takes exact text of the link
             Using full and exact text or link to locate link webElement on the web page.
             Seems like .equals() method in Java
+            href attribute
 
         partialLinkText --> takes partial text of the link
             Using part of the linktext to locate the link webElement

@@ -5,23 +5,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CSS_With_StartsWith {
+public class Css_With_EndsWith {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver= WebDriverFactory.getDriver("chrome");
         driver.get("http://eurotech.study/login");
 
         driver.findElement(By.cssSelector("#rcc-confirm-button")).click();
 
-        // Xpath with startsWith --> //input[starts-with(@placeholder,'Email')]
-        //CSS Selector with StartsWith --> tagName[attribute^='value']
-        WebElement userEmail = driver.findElement(By.cssSelector("input[placeholder^='Email']"));
+        // We can NOT use ends-with method with Xpath
+
+        //CSS Selector with EndsWith --> tagName[attribute$='value']
+        WebElement userEmail = driver.findElement(By.cssSelector("input[placeholder$='Address']"));
         userEmail.sendKeys("eurotech@gmail.com");
 
-        //CSS Selector with StartsWith --> [attribute^='value']
-        WebElement userPassword= driver.findElement(By.cssSelector("[placeholder^='Pass']"));
+        //CSS Selector with EndsWith --> [attribute$='value']
+        WebElement userPassword= driver.findElement(By.cssSelector("[id$='pw-input']"));
         userPassword.sendKeys("Test12345!");
 
-        driver.findElement(By.cssSelector("input[class^='btn']")).click();
+        driver.findElement(By.cssSelector("[id$='btn']")).click();
 
         Thread.sleep(1000);
         driver.close();

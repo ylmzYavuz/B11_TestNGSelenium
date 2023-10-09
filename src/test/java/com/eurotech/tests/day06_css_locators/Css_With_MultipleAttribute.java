@@ -4,7 +4,7 @@ import com.eurotech.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CSS_With_MultipleAttribute {
+public class Css_With_MultipleAttribute {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver= WebDriverFactory.getDriver("chrome");
         driver.get("http://eurotech.study/login");

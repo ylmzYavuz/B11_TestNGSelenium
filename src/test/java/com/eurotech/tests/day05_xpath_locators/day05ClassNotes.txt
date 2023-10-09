@@ -1,0 +1,130 @@
+DAY05-CLASS NOTES
+XPATH LOCATOR
+
+2 Types of Xpath Locator
+	Absolute Xpath and Relative Xpath
+
+* ABSOLUTE XPATH
+	Starts with "/", single slash.
+	http://eurotech.study/login
+	password --> /html/body/div/section/form/div[2]/input
+
+
+* RELATIVE XPATH
+	Starts with "//", double slash
+	http://eurotech.study/login
+	password --> //div[2]/input
+
+
+	- LOCATING ELEMENT WITH KNOWN ATTRIBUTE & VALUE
+		//tagName[@attributeName='attributeValue']
+			http://eurotech.study/login
+			email --> //input[@type='email'] --> 1st way
+					  //*[@type='email']     --> 2nd way
+					  //*[@*='email']	     --> 3rd way
+					  * means ANY
+
+
+
+	- LOCATING ELEMENT WITH KNOWN VISIBLE TEXT (requires exact match)
+		//tagName[text()='exact text']
+			http://eurotech.study/login
+			DevEx-->	//a[text()=' DevEx']
+		//tagName[.='exact text']
+			http://eurotech.study/login
+			DevEx-->	//a[.=' DevEx']
+
+			https://demoqa.com/text-box
+			Alerts, Frame&Windows-->	//div[text()='Alerts, Frame & Windows']
+
+
+	- LOCATING ELEMENT WITH KNOWN VISIBLE TEXT (PARTIAL)
+		//tagName[contains(text(),’part of text’)]
+			http://the-internet.herokuapp.com/
+			add/Remove Elements-->	//a[contains(text(),'Add')]
+
+			https://demoqa.com/elements
+			Text Box-->	//span[contains(text(),'Text')]
+
+
+
+	- LOCATING DYNAMIC ELEMENT WITH STARTING WITH
+   		//tagName[starts-with(@attribute,'startingValue')]
+   			http://eurotech.study/login
+   			email address --> //input[starts-with(@id,'loginpage-i')]
+   							  //input[starts-with(@placeholder,'Email')]
+
+
+
+	- LOCATING DYNAMIC ELEMENT WITH ENDS WITH
+     	//tagName[ends-with(@ATTRIBUTE,‘VALUE’)]
+     	DOES NOT WORK WITH CHROME, EDGE
+
+
+	- LOCATING DYNAMIC ELEMENT WITH CONTAINS
+		//tagName[contains(@attribute ,’value’)]
+			http://eurotech.study/login
+			email address--> //input[contains(@placeholder,'Address')]
+			https://www.amazon.com.tr/
+			searchbox--> //input[contains(@id,'tab')]
+			http://the-internet.herokuapp.com/challenging_dom
+			3rd element -->	//a[contains(@class,'success')]
+
+
+	- IF THERE ARE MULTIPLE ELEMENTS FOR AN XPATH?- INDEX
+		1.If they have same parent:
+				//tagName[1]
+      			//tagName/childTag[2]
+      			https://demo.aspnetawesome.com/
+      			HOME--> //nav/ul/li[3]
+
+
+		2.If they have not same parent
+				(//tagName[@attribute='value'])[index]
+					https://demo.aspnetawesome.com/
+					Vegetables RadioButton --> (//div[@class='o-con'])[3]
+
+
+
+	- LOCATING ELEMENTS WITH MULTIPLE ATTRIBUTES
+		http://eurotech.study/login
+		//TagName[@attribute1=‘value1’] [@attribute2=‘value2’]
+			//input[@type='email'] [@placeholder='Email Address']
+			-->	uses AND
+
+		//TagName[@attribute1=‘value1’ and @attribute2=‘value2’]
+			//input[@type='email' and @placeholder='Email Address']
+
+		//TagName[@attribute1=‘value1’ or @attribute2=‘value2’]
+			//input[@type='email' or @placeholder='Email Address']
+
+
+	- LOCATING PARENT ELEMENT
+		http://eurotech.study/login
+		Email address --> parent
+			1.way :  //<knownXpath>/parent::*
+				//input[@type='email']/parent::*
+			2.way :  //<knownXpath>/parent::tagName
+				//input[@type='email']/parent::div
+			3.way:  //<knownXpath>/../../..
+				//input[@type='email']/..
+
+
+
+	- LOCATING FOLLOWING SIBLING
+		http://eurotech.study/login
+		Email --> Password
+			1.way: //<knownXpath>/following-sibling::*
+				//div[@class='form-group']/following-sibling::*
+			2.way: //<knownXpath>/following-sibling::tagName
+				//div[@class='form-group']/following-sibling::div
+
+
+	- LOCATING PRECEDING SIBLING
+		http://eurotech.study/login
+		Password--> Email
+			1.way: //<knownXpath>/preceding-sibling::*
+				//div[@id='loginpage-form-pw-container']/preceding-sibling::*
+
+			2.way: //<knownXpath>/preceding-sibling::tagName
+				//div[@id='loginpage-form-pw-container']/preceding-sibling::div

@@ -1,0 +1,163 @@
+Day06-CSS Selector Locator
+
+CSS Selector
+
+	LOCATING ELEMENT WITH ID
+		Web element DevEx : <input id="loginpage-input-email" type="email" placeholder="Email Address" name="email" required="" value="">
+
+		1st way : #valueOfID : #loginpage-input-email
+		2nd way : tagName#value of ID : input#loginpage-input-email
+
+_____________________________________________________________________________________________________________________
+
+	LOCATING ELEMENT WITH CLASS
+		Web element DevEx : <input type="submit" class="btn btn-primary"
+		id="loginpage-form-btn" value="Login">
+
+		Xpath : //input[@class='btn btn-primary']
+
+		CSS Selector:
+		1st way : .valueOfClass → .btn.btn-primary (if there is a space, put "." instead of space )
+ 		2nd way : tagName.valueOfClass → input.btn.btn-primary
+
+_____________________________________________________________________________________________________________________
+
+	LOCATING ELEMENT WITH KNOWN ATTIRBUTE& VALUE
+		Web element DevEx : <input id="loginpage-input-email" type="email" placeholder="Email Address" name="email" required="" value="">
+
+		Xpath : //input[@type='email']
+ 				//input[@class='btn btn-primary']
+
+		CSS Selector:
+		TagName[attribute=‘value’] → input[type='email']
+									 input[class='btn btn-primary']
+
+		Web element DevEx : <input id="loginpage-input-email" type="email" placeholder="Email Address" name="email" required="" value="">
+
+		CSS Selector: [attribute='value'] → [type="email"]
+		CSS Selector: [class='value']     → [class='btn btn-primary']
+
+_____________________________________________________________________________________________________________________
+
+	LOCATING DYNAMIC ELEMENT WITH STARTING WITH ( ^)
+		Web element - Amazon : <input id="nav-search-submit-button" type="submit" class="nav-input nav-progressive-attribute" value="Git" tabindex="0">
+
+		Xpath : //input[starts-with(@id,'nav-s')]
+		CSS Selector:
+			TagName[attribute^=‘value’] → input[id^='nav-s']
+
+		Web element DevEx : <input id="loginpage-input-email" type="email" placeholder="Email Address" name="email" required="" value="">
+
+		Xpath : //input[starts-with(@placeholder,'Email')]
+		CSS Selector :
+			TagName[attribute^='value'] → input[placeholder^='Email']
+
+_____________________________________________________________________________________________________________________
+
+	LOCATING DYNAMIC ELEMENT WITH ENDING WITH ( $ )
+		Web element DevEx : <input id="loginpage-input-email" type="email" placeholder="Email Address" name="email" required="" value="">
+
+		Xpath : we cannot use “ends-with” with chrome
+		CSS Selector:
+			TagName[attribute$='value'] → input[placeholder$='Address']
+
+		Ex 2 :
+		Web element : <button class="btn btn-primary" onclick="button3()" id="button_b1">Button 3</button>
+
+		Xpath : we cannot use “ends-with” with chrome
+		CSS Selector:
+			TagName[attribute$='value'] → button[onclick$="3()"]
+
+_____________________________________________________________________________________________________________________
+
+	LOCATING DYNAMIC ELEMENT WITH CONTAINS ( * )
+		Web element DevEx : <p class="my-1" id="loginpage-form-warn-text">Don't have an account? <a href="/register">Sign Up</a></p>
+
+		Xpath : //p[contains(@id,'warn')]
+		CSS Selector:
+			TagName[attribute*='value'] → p[id*='warn']
+
+		Ex : 2
+		Web element <button class="btn btn-primary" onclick="button5()"
+		id="unity">Button 5</button>
+
+		Xpath : //button[contains(@onclick,'5()')]
+		CSS Selector:
+			TagName[attribute*=‘value’] → button[onclick*='5()']
+
+_____________________________________________________________________________________________________________________
+
+	LOCATING ELEMENTS WITH MULTIPLE ATTRIBUTES
+		Web element DevEx : <input id="loginpage-input-email" type="email" placeholder="Email Address" name="email" required="" value="">
+
+		Xpath : //input[@type='email'][@name="email"] → also we can use with "and" & "or"
+		CSS Selector:
+			TagName[attribute1='value1'][attribute2=‘value2’]
+ 			→ input[type='email'][name="email"] → we can NOT use "and" & "or"
+
+_____________________________________________________________________________________________________________________
+
+	HOW TO LOCATE CHILD ELEMENT WITH CSS SELECTOR?
+
+		xpath : //tag/tag/tag → we use / for navigating to child element
+
+		→ //section/form/div[2]/input → we can go second div child with indexing as div[2]
+
+		CSS Selector : tag>tag>tag we use > for navigating to child element
+  		→ section>form>div>input → we can not use index with CSS Selector
+
+_____________________________________________________________________________________________________________________
+
+  	HOW TO LOCATE DESCENDANT ELEMENT IN CSS ? - PARENT TO CHILD
+		Xpath: //tag//tag/tag 	we use // for navigating to child element
+			//section//div[2]/input
+
+		Css: tag tag tag 	we use SPACE for navigating to child element
+			→ section form div input
+			or
+			→ section div input ( we can jump grandchild - we took out “form” )
+
+		*We can NOT go from child to parent with CSS Selector
+
+_____________________________________________________________________________________________________________________
+
+	LOCATING FOLLOWING SIBLING
+		Xpath : → //p[@class="lead"]/following-sibling::span
+
+		CSS : <knownCSS> ~ tagName → [class="lead"]~span
+		~ Tilde/wave dash
+
+		* We can NOT locate PRECEDING SIBLING with CSS Selector.
+
+_____________________________________________________________________________________________________________________
+
+	CSS Selector vs XPATH
+		CSS is slightly faster than xpath on IE, for other browser is same.
+			-> CSS, IE'de Xpath'ten biraz daha hızlıdır, diğer tarayıcılarda aynıdır.
+		CSS is easier to write and read, cleaner syntax.
+			-> CSS'in yazılması ve okunması daha kolaydır, daha temiz söz dizimine sahiptir.
+		CSS can NOT locate element using text.
+			-> CSS, text kullanarak webElement locate edemez.
+		CSS can NOT find from matches based on index.
+			-> CSS index örtüşmesi ile bulamaz.
+		CSS can NOT locate child to parent.
+			-> CSS child tan parent a gidemez.
+		Xpath can do more than CSS but it is little complex to write.
+			-> XPATH, CSS'ten daha fazlasını yapabilir, ama yazımı biraz karmaşıktır.
+		Xpath is flexible.
+			-> XPATH esnektir.
+
+_____________________________________________________________________________________________________________________
+
+	Hierarchy of Locators
+
+		FOR ALL LOCATORS OTHER THAN LINKS
+		ID : Always look for id first, they are unique (dynamic problem)
+		NAME : Not always unique, (can be duplicate (radio buttons))
+		TagName : If it is unique you can use it
+		className: if there is a space we cannot use.
+		CSS Selector: partial dynamic, attribute value, more than one class, direct ID
+		XPATH: text of element, index, child to parent
+
+		FOR LINKS
+		If webElement is a link, we use linkText or partialLinkText locator to locate this type of webElement.

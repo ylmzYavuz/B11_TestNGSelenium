@@ -31,7 +31,7 @@ BASIC LOCATORS
         id --> takes id attribute's value
             It is always unique 99%.
             It is the first locator we are looking for.
-            Check it is dynamic or static. If it is static, we can use it.
+            → Check it is dynamic or static. *If it is static, we can use it.
             How to understand id value is static or not?
             After inspecting the webElemment and finding value, refresh the web page.
             If the value is changing we can NOT USE, refresh couple times, always be sure.
@@ -47,21 +47,21 @@ BASIC LOCATORS
             If your locators match with one webelement, selenium stop there
             For the second element selenium starts again from the top
             If there are multiple tagNames, we cannot point the second one
-            We can NOT use index when we use tagName locator
+            → We can NOT use index when we use tagName locator
 
 
         className --> takes class attribute's value
-            If there is a space in the value of class attribute, we can not use className locator
+            → If there is a space in the value of class attribute, we can not use className locator
             We will use it later to locate multiple elements in one shot
 
         linkText --> takes exact text of the link
             Using full and exact text or link to locate link webElement on the web page.
-            Seems like .equals() method in Java
+            → Seems like .equals() method in Java
             href attribute
 
         partialLinkText --> takes partial text of the link
             Using part of the linktext to locate the link webElement
-            Part of the link must be unique text part
+            → Part of the link must be unique text part
             Seems like .contains() method in Java
 
 

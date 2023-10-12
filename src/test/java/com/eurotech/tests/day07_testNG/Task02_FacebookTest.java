@@ -23,7 +23,7 @@ public class Task02_FacebookTest {
     public  void setUp(){
         driver= WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
-        driver.findElement(By.xpath("[value='1'][type='submit'][data-cookiebanner='accept_button']")).click();
+        //driver.findElement(By.xpath("[value='1'][type='submit'][data-cookiebanner='accept_button']")).click();
     }
 
     @Test
@@ -34,7 +34,7 @@ public class Task02_FacebookTest {
         driver.findElement(By.id("pass")).sendKeys("123456hj");
         driver.findElement(By.name("login")).click();
 
-        String expectedMessage="Is this your account?";
+        String expectedMessage="Ist das dein Konto?";
         String actualMessage=driver.findElement(By.className("_9kpn")).getText();
         System.out.println("actualMessage = " + actualMessage);
         Assert.assertEquals(actualMessage,expectedMessage,"Verify that actual message is equal expected message");

@@ -30,6 +30,7 @@ public class Task02_FacebookTest {
     public void facebookLogin() {
 
         driver.get("https://www.facebook.com/");
+        driver.manage().window().fullscreen();
         driver.findElement(By.id("email")).sendKeys("absc@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("123456hj");
         driver.findElement(By.name("login")).click();

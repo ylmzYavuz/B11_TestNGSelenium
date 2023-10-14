@@ -1,0 +1,75 @@
+TYPE OF WEBELEMENTS - RADIO BUTTON, CHECKBOX, isSelected, isEnabled, isDisplayed
+
+_______________________________________________________
+ASSERTION REVIEW
+	4 types of assertion
+		Assert.assertEquals("test2","test2")  —> it checks two values are same or not
+
+		Assert.assertTrue ( actualTitle.startsWith(expectedTitle),"message") —> it checks whether condition return true or not  - boolean condition
+
+		Assert.assertFalse ( 0> 1,"Verify that 0 is NOT greater than 1" ) —> it verifies condition returns false or not (false → PASS)
+
+		Assert.assertNotEquals ( "two" ,"one" ) —> it verifies two values are NOT equal - (if NOT -PASS)
+___________________________________________________________
+
+
+TYPE OF WEBELEMENTS
+
+
+	RadioButton
+			- RadioButton is a type of web element which supports only one option can be selected among group of options
+			ex: Gender -->  Male O Female O Other O
+			- Based on the requirements you might or might not have default option
+
+			How to check radioButton is selected or not?
+				isSelected()--> if radio button is selected it return TRUE, if NOT selected then it returns FALSE (boolean condition)
+			How to select a radioButton?
+				click() --> to select radioButton
+
+			How can we check if the webElement is enable?
+				* What is disabled element?
+     			* Disable means :
+     			* U can NOT interact with the element
+     			* U can NOT click
+     			* or
+     			* U can NOT write something
+     			isEnabled()--> method returns TRUE if the element is enable, if NOT returns FALSE (boolean condition)
+
+
+	CheckBox
+			- Checkbox is a type of input element which can be selected or unselected
+			- When we have a group of checkbox selecting or inselecting one checkbox does NOT effect on the selection of the other one.
+			- Just like radio buttons, we use isSelected() method to check checkboxes are selected or not
+			- To select or unselect the checkboxes, we use click() method
+
+	getAttribute("attributeName")
+			- when we pass valid and exact attribute name to getAttribute() method, it returns the value of that attribute
+			- if we pass NON existing attribute name, it returns NULL value
+			- “outerHTML” returns full html of the selected element
+
+
+	isDisplayed()
+			with this method, Selenium verifies if a certain element is present and displayed on the page. If the element is displayed then it returns true, if not it returns false.	(boolean condition)
+
+
+
+_______________________________________________________________________________________
+TASKS
+  // Class Task
+        // complete the task
+        // click all the checkboxes
+        // then assert that is selected or not
+
+
+
+________________
+  /**
+         * Class Task
+         * go to https://the-internet.herokuapp.com/dynamic_loading/2
+         * see Example 2: Element rendered after the fact -->click
+         * Then do this task;
+         *    verify that hello world is not displayed
+         *    click start button
+         *    verify that hello element is displayed
+         *    and verify that "Hello World!" text is present
+         */

@@ -37,7 +37,7 @@ public class CheckBoxDemo {
     public void test2() throws InterruptedException {
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://demoqa.com/automation-practice-form");
-        driver.manage().window().maximize();
+        driver.manage().window().fullscreen();
 
         WebElement sports = driver.findElement(By.id("hobbies-checkbox-1"));
         WebElement reading = driver.findElement(By.id("hobbies-checkbox-2"));
@@ -58,6 +58,20 @@ public class CheckBoxDemo {
         Thread.sleep(1000);
         Assert.assertTrue(sports.isSelected());
         Thread.sleep(1000);
+
+        WebElement readingCheck = driver.findElement(By.cssSelector("[for='hobbies-checkbox-2']"));
+        readingCheck.click();
+        Thread.sleep(1000 );
+        Assert.assertTrue(reading.isSelected());
+        Thread.sleep(1000);
+
+        WebElement musicCheck = driver.findElement(By.cssSelector("[for='hobbies-checkbox-3']"));
+        musicCheck.click();
+        Thread.sleep(1000);
+        Assert.assertTrue(music.isSelected());
+        Thread.sleep(1000);
         driver.close();
+
+
     }
 }

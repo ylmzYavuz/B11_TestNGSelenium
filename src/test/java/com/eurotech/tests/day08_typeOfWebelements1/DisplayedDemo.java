@@ -1,4 +1,4 @@
-package com.eurotech.tests.day08_typeOfWebelements;
+package com.eurotech.tests.day08_typeOfWebelements1;
 
 import com.eurotech.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -29,6 +29,7 @@ public class DisplayedDemo {
         //driver.close();
 
     }
+
     @Test
     public void task() throws InterruptedException {
         /**
@@ -45,19 +46,23 @@ public class DisplayedDemo {
         driver.get("https://the-internet.herokuapp.com/dynamic_loading/2");
         driver.manage().window().fullscreen();
 
-        WebElement text = driver.findElement(By.xpath("//h4[text()='Hello World!']"));
+        WebElement text = driver.findElement(By.tagName("body"));
         Thread.sleep(1000);
-        Assert.assertFalse(text.isDisplayed());
+        //System.out.println("text.getText() = " + text.getText());
+
+        Thread.sleep(1000);
+        Assert.assertNotEquals(text.getText(), "Hello World!");
 
         Thread.sleep(1000);
         WebElement startBtn = driver.findElement(By.cssSelector("div>button"));
         startBtn.click();
         Thread.sleep(5000);
-        Assert.assertTrue(text.isDisplayed());
-
+        WebElement elementText = driver.findElement(By.xpath("//h4[text()='Hello World!']"));
+        //System.out.println("elementText.getText() = " + elementText.getText());
+        Assert.assertTrue(elementText.isDisplayed());
 
         Thread.sleep(2000);
         driver.close();
     }
-
 }
+

@@ -32,7 +32,7 @@ public class SelectDropDownTest {
 
         //driver.get("https://demoqa.com/select-menu");
 
-        WebElement colorDropDown = driver.findElement(By.id("oldSelectMenu"));
+        WebElement colorDropDown = driver.findElement(By.id("oldSelectMenu")); // tagName muss select sein
         //create select object by passing that elements as a constructor
         Select color=new Select(colorDropDown);
         //getOptions()-> return the all available options from the dropdown

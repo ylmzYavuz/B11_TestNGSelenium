@@ -1,0 +1,52 @@
+Day09_Type Of Web Elements_2
+
+	FindElements
+		We have been trying to locate one element until now. We will learn how to locate multiple elements and interact with.
+
+		List Of Elements
+			driver.findElements()
+			We are going to use one locator, but with it, we will get more than one element.
+			findElements() method returns list of webElements.
+			We locate the element in one shot.
+			Use common locators for the elements that you want to locate.
+			Pass your locator to findElements() method;
+			List<WebElement> listElements=driver.findElements(By......)
+			If you are using findElements() method, first check the size always.
+			Because, it returns true even if your locator is false —> listElement.size() = 0
+			findElements() —> does NOT throw NoSuchElementException if your locator is wrong, it returns empty list.
+______________________________________________________________________________________
+
+	DropDown
+		We have 2 different way to handle dropdown
+		Select Class
+			Select —>html tag
+			Select Class —> class from selenium
+			If dropdown starts with select tag / has select class, this is easy way.
+			select class comes from selenium.
+			Usually, only one is allowed to be chosen from the dropdown.
+			Select class only works with webElement which has select tag.
+
+			How to use Select Class?
+			1.  Be sure that the dropdown has select tag
+			2.  Locate the dropdown just like another elements
+			3.  Create object using Select class by passing the element that we locate step 2 as a constructor.
+
+			SELECT methods
+				getOptions() --> returns all text available options from the dropdown list.
+				getFirstSelectedOption()--> return webElement, first selected option
+
+			HOW TO SELECT OPTION FROM DROPDOWN
+				1.  Using Visible Text
+				selectByVisibleText("text") -->selecting based on the visible text of options
+				2.  Using index Number
+				selectByIndex(indexNumber) -->select based on index of options(starts from 0)
+				3.  Using value attribute's value
+				selectByValue(option value) --> select based on value of value attribute
+
+_______________________________________________________________________________________
+
+	No Select Dropdown
+		When we try to use Select class with the dropdown which does not have select tag we got UnexpectedTagNameException: Element should have been "select" but was “div"
+		If we don’t have select tag we locate dropdown just like any other elements and see options with clicking or hovering over to it.
+		To get all options from dropdown we can use common locator between them(exp: classname, tag name etc) then we can use list methods to get the size and expected options list.
+		We use click() method to click different options, we can either locate the options separately or use index of the options from list.

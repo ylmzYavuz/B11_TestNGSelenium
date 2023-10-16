@@ -1,0 +1,123 @@
+Day10-Type Of Web Elements 3
+
+Pop Ups, Multiple Windows, Iframe, and switchTo() method
+
+    Pop Ups
+        Pop ups, modal, alerts, dialog, overlay —> anything pop ups on the web.
+        We have 2 different way  of handling pop ups, based on their structure:
+
+            HTML pop ups
+                if the pop up is from HTML ve deal it as if it another web element
+
+            JavaScript Alert
+                They come from JavaScript, mostly known as js alerts.
+                We can Not click on those alerts to see the html (inspect)
+                To deal with non HTML alerts we have an interface from selenium which is called Alert.
+
+            How to point alert ?
+                Alert alert=driver.switchTo().alert() ;  —> it is from Selenium
+                And we have accept, dismiss, senKeys and getText method for alerts.
+                alert.accept() ; --> OK
+                alert.dismiss() ; --> Cancel
+                alert.sendKeys("Eurotech Batch 11") ;
+                alert.getText()) ; --> gets alert's message/not our's!
+
+            *If there is no alert on the web page and we try to switch :
+                --> NoAlertPresentException: no such alert
+
+_________________________________________________________________________________________
+
+    Multiple Windows
+        Tab and Windows
+            In selenium there is no difference between tabs and windows.
+            By default selenium controls one html page
+            When we open the page first time it points that page only
+            When we open new tab/window, it will still be looking at the old windows
+            To do any injection with new window we have to switch to the new window
+            driver.getWindowHandle()) ;-→ this returns some unique code belongs
+            the current windows that we open with driver.get()
+            Handle —> unique identifier for windows
+            driver.getWindowHandles() ; — > returns the Set of string IDs the all open windows
+        _________________________________________________________________________________
+
+        How to switch next window/tab?
+
+            WebElement click_here = driver.findElement(By.linkText("Click Here"));
+            click_here.click();
+
+            Thread.sleep(2000)
+            String currentTab = driver.getWindowHandle(); // title The internet and has ID :
+            //CDwindow-AB208FB49092834C9B5FF63C0420AA22
+            //CDwindow-4CBD5C79D0E5BDA4600F4B1C3A5C2B1D // it will change every time
+            System.out.println("currentTab = " + currentTab);
+
+            Set<String> windowHandles = driver.getWindowHandles();
+            // first and most important thing ;
+            // HashSet is a collection of an items where every item is unique!!!
+
+            for (String tab : windowHandles) { //go and check one by one
+
+                if(!tab.equals(currentTab)) {
+                    driver.switchTo().window(tab);
+                }
+            }
+
+            System.out.println("driver.getTitle() = " + driver.getTitle());
+            __________________________________________________________________
+
+
+        How to handle more than 2 windows/tabs?
+            System.out.println("driver.getTitle() = " + driver.getTitle());
+
+            System.out.println("driver.getWindowHandle() = " + driver.getWindowHandle());
+
+            WebElement click_here = driver.findElement(By.linkText("Click Here"));
+            click_here.click();
+            click_here.click();
+            click_here.click();
+            click_here.click();
+
+            Set<String> windowHandles = driver.getWindowHandles();
+
+            for (String tab : windowHandles) {
+                driver.switchTo().window(tab);
+                //if(driver.getTitle().equals("New Window")){
+                if(driver.getCurrentUrl().equals("https://the-internet.herokuapp.com/windows/new")){
+                    break;
+                }
+
+            }
+
+_________________________________________________________________________________________
+
+    Iframe
+        No Such Element Exception
+        1- Locator might be wrong or dynamic or not correct
+        2- Not enough wait time
+        3- There is a frame or iframe
+            In html we can have one HTML page inside to another.
+            This is made possible by tag <iframe> or <frame>.
+            Using frames we can put inside the HTML.
+            When we have with frames, selenium can not control what is
+            inside the frame.
+            We have to switch iframe first.
+            When we switch to iframe it will not see the default page, until we
+            switched back.
+            We can only switch one at a time and cannot switch to grandchild
+            directly.
+            can not switch to siblings only parent to child.
+
+
+        FROM https://the-internet.herokuapp.com/nested_frames
+
+        html
+        0 frame-top   parent            1 frame-bottom parent
+                   0  left
+                   1  middle
+                   2  right
+        1.  HTML—>frame-top —> right    4.  middle—>frame top—>HTML—>frame-bottom
+        2.  right—>frame-top—>left
+        3.  left—> frame-top-middle
+
+
+        if you use defaultContent() —> it will start from HTML

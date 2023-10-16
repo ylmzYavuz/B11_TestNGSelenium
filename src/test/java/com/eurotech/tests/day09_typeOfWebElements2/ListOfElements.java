@@ -42,7 +42,7 @@ public class ListOfElements {
         //element not clickable
         //menuList.get(0).click();
 
-        for (WebElement element : menuList) {
+        for (WebElement element : menuList) { //itar/iter+enter
             System.out.println("webElement.getText() = " + element.getText());
         }
     }

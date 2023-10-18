@@ -19,7 +19,8 @@ public class ImplicitWaitExample {
     public void setUp() {
         driver = WebDriverFactory.getDriver("chrome");
         //driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);//-->interwiev de cikabilir
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);//--> interwiev de cikabilir
+                                                                          //--> 15 saniye ideal 20 üst sinir
     }
 
     @AfterMethod

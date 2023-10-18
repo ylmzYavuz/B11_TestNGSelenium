@@ -54,6 +54,7 @@ public class ExplicitWaitExample {
         wait.until(ExpectedConditions.elementToBeClickable(inputBox));
         inputBox.sendKeys("Eurotech B11 is Here");
 
-
+        WebElement message = driver.findElement(By.xpath("//p[@id='message']"));
+        Assert.assertEquals(message.getText(),"It's enabled!");
     }
 }

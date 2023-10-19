@@ -1,0 +1,86 @@
+Day11-Waits in Selenium
+
+Thread.Sleep(), Implicit wait, Explicit wait
+Thread Sleep
+java kaynaklı bir wait metodudur (not selenium)
+süreci milisaniye olarak durdurur
+belirlenen zaman kadar durdurur
+uzun veya kısa olmamasına dikkat edilmelidir
+NOT RECOMENDED
+kullanılması durumunda minimum tercih edilmeli
+Thread.sleep testin koşturulmasını oldukça yavaşlatıyor.
+
+Implicit Wait
+driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+selenium kaynaklı wait metodudur.
+implicitWait metotu iki parametre alır.
+İlki zamanın tamsayı olarak değeri,
+ikinci parametre ise zamanın saniye , dakika , milisaniye cinsinden türüdür
+HOW findElement() METHODS WORK ?
+findElement() metodu kullanılarak tespit edilen locator ile test ortamındaki
+web elementlere ait işlevlerin/fonctions kullanılması hedeflenir
+findElement() ile ;
+
+1. Eğer Element Bulunursa,
+WebElement'i döndürür
+2. Eğer element bulunamaz ise;
+implicit wait setinin olup olmadığını kontrol edilir.
+a. implicitly wait varsa;
+Day11-Waits in Selenium2Ayarlanan zamana kadar web elementi bulmaya çalışır.
+1.Eğer zaman içinde bulursa elemati döndürür.
+2.Bulamazsa NoSuchElementException hatası verir.
+b. Implicit wait seti yoksa;
+NoSuchElementException'ı atar
+
+Implicit wait;
+öğelerin HTML'de bulunmasını bekler, Yalnızca findElement() metodu
+çağırdığımızda çalışır.
+Element bulunana kadar bekler, bulunursa beklemeyi bitirir.
+Bir kez ayarlanır, ardından programın geri kalanı tarafından kullanılır.
+Çok sayıda findElement() yöntemimiz varsa, hepsi aynı implicitly wait setini
+kullanır.
+findElement() yöntemi web öğesini html'de bulduğu sürece,
+* interactible, visible, clickible olup olmaması umurunda DEĞİLDİR.
+* Elementi döndürür.
+* Dolayısıyla implicit wait , elementNotInteractible sorunlarımızı
+çözmeyecektir.
+
+Explicit Wait
+1. Bazen öğeyi bulabiliriz ancak belirli bir süre içinde onunla etkileşime giremeyiz.
+visible, clicikble, enabled, certains text /belirli bir metni olana veya
+kaybolana/dissapear kadar beklemek zorundayız.
+bu durumlar için beklememiz gerektiğinde, expilicit wait kullanacağız.
+2. Explicit wait kullanmak için
+2 adım :
+1. önce nesne geçiş parametrelerini oluşturun
+WebDriverWait wait= newWebDriverWait(driver,10);
+WebDriverWait --> açık beklemeler için kullanılan clas
+2 parametre sürücü alır, saniye cinsinden süre
+Day11-Waits in Selenium32. web öğesi veya durum için belirli koşullara kadar beklemek için nesneyi
+kullanın.
+wait.until(ExpectedConditions.elementToBeClickable(inputBox));
+Expected Conditions-->WebDriverWait kullanarak
+bekleyebileceğimiz bekleme koşullarını içerir
+Hangi koşulu kullandığımıza bağlı olarak, webelement,
+bylocator veya text'i ExpectedConditions'a geçirebiliriz.
+3. Explicit wait, koşulun tamamlanmasını bekler, koşul karşılandığında beklemeyi
+durdurur (dinamik).
+4. koşul karşılanmazsa ve süre biterse TimeoutException'ı alırız
+
+
+3 WAIT KARŞILAŞTIRILMASI
+Thread.sleep()
+her ihtiyacın olduğunda çağır
+tüm süreyi bekler, dinamik değil (statik)
+Java kaynaklı-Selenium değil
+
+implicitWait
+bir kez set edilir, (set of driver)
+Öğeyi bulmaya çalışırken bekler
+eleman bulunana veya süre bitene kadar bekler (dinamik)
+tüm findElement() yöntemleri için geçerlidir
+
+explicitWait
+her ihtiyacın olduğunda çağır
+koşul sağlanana veya süre bitene kadar bekler (dinamik)
+farklı koşulları bekler (interactible,visible,invisible,text,clicible vb.)

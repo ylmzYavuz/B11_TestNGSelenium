@@ -1,0 +1,5 @@
+EuroTech Batch11 is still learning Test automation.
+
+ProjectPath = C:\Users\User\IdeaProjects\B11_TestNGSelenium
+filePath = src/test/resources/Eurotech_Batch11.txt
+fullPath C:\Users\User\IdeaProjects\B11_TestNGSelenium/src/test/resources/Eurotech_Batch11.txt

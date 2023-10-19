@@ -9,7 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class IframeTest {
+public class  IframeTest {
     WebDriver driver;
     @BeforeMethod
     public void setUp() {
@@ -33,7 +33,7 @@ public class IframeTest {
         Thread.sleep(1000);
         WebElement textArea = driver.findElement(By.id("tinymce"));
         textArea.clear();
-        textArea.sendKeys("Batch11 loves Iframe");
+        textArea.sendKeys("ifamee");
 
         Thread.sleep(1000);
         //switching to parent frame or HTML structure

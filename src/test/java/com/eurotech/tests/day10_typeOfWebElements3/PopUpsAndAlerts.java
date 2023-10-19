@@ -5,17 +5,23 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class PopUpsAndAlerts {
     WebDriver driver;
+    WebDriverWait wait;
     @BeforeMethod
     public void setUp() {
         driver= WebDriverFactory.getDriver("chrome");
         //driver.manage().window().maximize();
+        wait = new WebDriverWait(driver,15);
     }
     @AfterMethod
     public void tearDown() throws InterruptedException {
@@ -24,7 +30,7 @@ public class PopUpsAndAlerts {
     }
     @Test
     public void popUpHTML() throws InterruptedException {
-        driver.get("  ");
+        driver.get("https://www.primefaces.org/showcase/ui/overlay/confirmDialog.xhtml?jfwid=b656a");
 
         //click confirm button
         driver.findElement(By.xpath("(//span[text()='Confirm'])[1]")).click();
@@ -43,6 +49,7 @@ public class PopUpsAndAlerts {
         */
         //verify confirm message
         String expectedMessage="You have accepted";
+        Thread.sleep(1000 );
         WebElement actualMessage= driver.findElement(By.xpath("//p[text()='You have accepted']"));
         Assert.assertEquals(actualMessage.getText(),expectedMessage);
     }
@@ -100,8 +107,31 @@ public class PopUpsAndAlerts {
      */
     @Test
 
-    public void task2() {
+    public void task2() throws InterruptedException {
         driver.get("https://demoqa.com/alerts");
+        driver.findElement(By.cssSelector("#alertButton")).click();
+        Alert alert = driver.switchTo().alert();
+        wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
+
+        driver.findElement(By.cssSelector("#timerAlertButton")).click();
+        wait.until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert();
+        alert.accept();
+
+        driver.findElement(By.id("confirmButton")).click();
+        driver.switchTo().alert();
+        alert.accept();
+        WebElement element = driver.findElement(By.xpath("(//div/span)[16]"));
+        Assert.assertEquals(element.getText(),"You selected Ok");
+
+
+        driver.findElement(By.id("promtButton")).click();
+        driver.switchTo().alert();
+        alert.sendKeys("B11 is here");
+        alert.accept();
+        WebElement result = driver.findElement(By.id("promptResult"));
+        Assert.assertEquals(result.getText(),"You entered B11 is here");
 
     }
 }

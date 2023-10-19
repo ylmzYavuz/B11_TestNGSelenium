@@ -90,4 +90,14 @@ public class ActionsTest {
         //2nd way for assertion
         Assert.assertTrue(verifyMessage.isDisplayed());
     }
+    @Test
+
+    public void rightClick() {
+        driver.get("https://demoqa.com/buttons");
+        WebElement rightClickBtn = driver.findElement(By.id("rightClickBtn"));
+        actions.contextClick(rightClickBtn).perform();
+
+        WebElement rightClickMessage = driver.findElement(By.id("rightClickMessage"));
+        Assert.assertTrue(rightClickMessage.isDisplayed());
+    }
 }

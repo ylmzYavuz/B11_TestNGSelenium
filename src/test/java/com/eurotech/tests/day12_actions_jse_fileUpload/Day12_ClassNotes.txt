@@ -1,0 +1,85 @@
+DAY12_CLASSNOTES
+
+ACTIONS CLASS | JS EXECUTOR | FILE UPLOAD
+
+	ACTIONS
+
+		-This class is advance skill for the Selenium, because Selenium has not these actions.
+		-Actions class is used to do advanced user interactions like mouse hover, double click, drag and drop etc.
+
+		Actions actions = new Actions(driver);
+
+		- Actions class is a class comes from Selenium and is created by passing the webDriver object as a constructor.
+
+			//perform() --> performs the action, completes the action
+
+			//moveToElement() --> assume that it moves mouse to webElement (hover over)
+
+		Double Click
+			acions.doubleClick(webElement).perform();
+
+		Right Click
+			actions.contextClick(webElement).perform();
+
+		Hover Over
+			usualy is created for subMenu or subList
+			actions.moveToElement(webElement).perform();
+
+		Drag&Drop
+			actions.dragAndDrop(source,target).perform();
+			actions.moveToElement(source).clickAndHold().moveToElement(target).pause(1000).release().perform();
+
+__________________________________________________________________________________________
+
+	JAVASCRIPT EXECUTOR
+
+		-When we can NOT solve our issue with Selenium and if the other options do NOT work, we can use JavaScript Executor.
+		-Like click, sendKeys, and also scroll up and down.
+		-JavaScript Executor is a very powerful method.
+		-And also you do NOT have to remember it.
+
+		Click with JS Executor
+			ask to google --> how to click with js executor --> then go to stackoverflow
+        	JavascriptExecutor jse = (JavascriptExecutor) driver;
+        	jse.executeScript("arguments[0].click();", webElement);
+
+		Type with JS Executor
+			ask to google --> How to sendKeys using with JS executor --> then go to stackoverflow
+	        JavascriptExecutor jse = (JavascriptExecutor) driver;
+    	    jse.executeScript("arguments[0].setAttribute('value', '" + text + "')", webElement);
+
+		Scroll Down&Up with JS Executor
+			ask to google --> How to scroll down in selenium with JS executor --> then go to stackoverflow
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("window.scrollBy(0,500)"); --> to scroll down
+			jse.executeScript("window.scrollBy(0,-500)"); --> to scroll up
+			jse.executeScript("window.scrollBy(x,y)"); --> we give coordinate as x and y
+
+
+		Scroll to Element with JS Executor
+			ask to google --> How to scroll into view with js Executor --> then go to stackoverflow
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("arguments[0].scrollIntoView(true);", webElement);
+
+
+
+__________________________________________________________________________________________
+
+	FILE UPLOAD
+
+		project path
+        System.out.println("System.getProperty(\"user.dir\") = " + System.getProperty("user.dir"));
+
+        Operating system name
+        System.out.println("System.getProperty(\"user.dir\") = " + System.getProperty("os.name"));
+
+        System Env --> u can keep any variable or data in your system environment
+        and u can use them with getenv() -> for security
+        System.out.println("System.getenv(\"Path\") = " + System.getenv("Path"));
+
+        To Create a Full Path:
+        String projectPath=System.getProperty("user.dir");
+
+        String filePath="src/test/resources/EuroTechB11.txt";
+
+        String fullPath=projectPath+"/"+filePath;

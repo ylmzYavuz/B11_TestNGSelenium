@@ -127,7 +127,6 @@ public class PopUpsAndAlerts {
 
 
         driver.findElement(By.id("promtButton")).click();
-        driver.switchTo().alert();
         alert.sendKeys("B11 is here");
         alert.accept();
         WebElement result = driver.findElement(By.id("promptResult"));

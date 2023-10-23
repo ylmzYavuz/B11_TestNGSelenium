@@ -28,9 +28,10 @@ public class DynamicWebTables {
     }
     @Test
 
-    public void dummy() {
+    public void testName() {
         driver.get("https://demoqa.com/webtables");
         WebElement aldenName = driver.findElement(By.xpath("//div[@class='rt-tbody']/div[2]/div/div[1]"));
+
         System.out.println("aldenName.getText() = " + aldenName.getText());
 
         WebElement lastName = driver.findElement(By.xpath("//div[text()='Last Name']"));

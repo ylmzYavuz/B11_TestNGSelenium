@@ -41,6 +41,11 @@ public class WebTables {
     @Test
 
     public void getAllHeaders() {
+        //th : Baslik
+        //td : Hücre
+        //tr : Satir
+        //tbody : Tablo'nun tamami
+
         List<WebElement>allHearders = driver.findElements(By.xpath("//table[@id='t01']//th"));
         System.out.println("allHearders.size() = " + allHearders.size());
 

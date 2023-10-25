@@ -20,7 +20,7 @@ public class TestBase {
         driver = Driver.get();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get(ConfigurationReader.get("url"));//lazimsa koy koyalim dursun olmaz
+        //driver.get(ConfigurationReader.get("url"));//lazimsa koy koyalim dursun olmaz
         wait = new WebDriverWait(driver, 15);//lazimsa koy koyalim dursun olmaz
         actions = new Actions(driver); //lazimsa koy koyalim dursun olmaz
     }

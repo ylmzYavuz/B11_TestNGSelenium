@@ -22,7 +22,6 @@ public class ConfigurationReader {
             e.printStackTrace();
         }
     }
-
     public static String get(String keyName) {
         return properties.getProperty(keyName);
     }

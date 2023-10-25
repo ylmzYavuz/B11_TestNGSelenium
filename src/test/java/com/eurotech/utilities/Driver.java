@@ -13,18 +13,20 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
 
-    private Driver() {
+    private Driver() {//encapsulation
     }
 
-    private static WebDriver driver;
+    private static WebDriver driver;//encapsulation
 
     public static WebDriver get() {
         String browser = ConfigurationReader.get("browser");
         if (driver == null) {
             switch (browser.toLowerCase()) {
                 case "chrome": // Chrome - CHROME - cHROME
-                    WebDriverManager.chromedriver().setup();//use only selenium-java=> before version 4.6...(bonigarcia 4.6 dan sonra selenium bu kismi kendi bünyesine aldi.Bonigarcia silinmeli)
-                    driver = new ChromeDriver();  // polly
+                    WebDriverManager.chromedriver().setup();
+                    //use only selenium-java=> before version 4.6...
+                    // (bonigarcia 4.6 dan sonra selenium bu kismi kendi bünyesine aldi.Bonigarcia silinmeli)
+                    driver = new ChromeDriver();  // pollymorfizm
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();

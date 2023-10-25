@@ -5,6 +5,7 @@ import java.util.Properties;
 
 public class ConfigurationReader {
 
+    //key/value formatinda veri saklayan java util package dan gelen class
     private static Properties properties;
 
     static {

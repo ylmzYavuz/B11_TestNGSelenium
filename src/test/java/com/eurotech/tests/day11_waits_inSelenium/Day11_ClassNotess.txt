@@ -84,3 +84,24 @@ explicitWait
 her ihtiyacın olduğunda çağır
 koşul sağlanana veya süre bitene kadar bekler (dinamik)
 farklı koşulları bekler (interactible,visible,invisible,text,clicible vb.)
+
+*EXPLİCİT WAİT İÇİN KULLANILAN EXPECTED CONDİTİON’LAR HANGİLERİDİR?
+
+➔ alertIsPresent()
+➔ elementSelectionStateToBe()
+➔ elementToBeClickable()
+➔ elementToBeSelected()
+➔ frameToBeAvaliableAndSwitchToIt()
+➔ invisibilityOfTheElementLocated()
+➔ invisibilityOfElementWithText()
+➔ presenceOfAllElementsLocatedBy()
+➔ presenceOfElementLocated()
+➔ textToBePresentInElement()
+➔ textToBePresentInElementLocated()
+➔ textToBePresentInElementValue()
+➔ titleIs()
+➔ titleContains()
+➔ visibilityOf()
+➔ visibilityOfAllElements()
+➔ visibilityOfAllElementsLocatedBy()
+➔ visibilityOfElementLocated()

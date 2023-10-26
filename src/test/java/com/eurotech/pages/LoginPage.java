@@ -1,16 +1,13 @@
 package com.eurotech.pages;
 
+
 import com.eurotech.utilities.ConfigurationReader;
-import com.eurotech.utilities.Driver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.FindBys;
 
-public class LoginPage {
-
-    public LoginPage() {
-        PageFactory.initElements(Driver.get(), this);
-    }
+public class LoginPage extends BasePage {
 
     @FindBy(id = "rcc-confirm-button")
     public WebElement understandBtn;
@@ -23,6 +20,28 @@ public class LoginPage {
     public WebElement submitBtn;
     @FindBy(xpath = "//*[contains(text(),'Invalid Credentials!')]")
     public WebElement warningMessage;
+
+    ////////////////////////////////////////////////////////////
+
+    //FindAll annotation is used like logical OR, and if one of the FindBy annotation finds element, it locates
+    @FindAll({  //logical or
+            @FindBy(id = "loginpage-input-email"),
+            @FindBy(name = "email")
+    })
+
+    public WebElement userEmailInputFindAll;
+
+    //FindBys annotation is used like logical AND, and if one of the FindBy annotation can NOT find element, it does NOT locate
+    @FindBys({ //logical and
+            @FindBy(id = "loginpage-form-pw-input"),
+            @FindBy(xpath = "//input[@type='password']")
+    })
+    public WebElement userPasswordInputFindBys;
+
+//    @FindBy(tagName = "li")
+//    public List<WebElement> list;
+    //////////////////////////////////////////////////////////
+
 
     public void login() {
         String email=ConfigurationReader.get("emailTeacher");

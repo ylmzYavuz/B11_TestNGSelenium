@@ -11,8 +11,9 @@ public class DashboardPage extends BasePage{
     public WebElement dashboardText;
     @FindBy(xpath = "//p[@id='dashboard-p1']")
     public WebElement welcomeMessage;
-    @FindBy(id = "navbar-menu-list2-item2")
-    public WebElement allPosts;
-    @FindBy(id = "navbar-menu-list2-item1")
-    public WebElement developers;
+    @FindBy(css = ".btn.btn-light")
+    public List<WebElement> dashboardList;
+    @FindBy(id = "post-form-btn")
+    public WebElement submitBtn;
 }
+

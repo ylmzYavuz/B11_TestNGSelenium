@@ -3,7 +3,7 @@ Page Object Model
 	What is Automation Framework?
 		Automation framework is integrated system, organization of packages, files, classes, tools in a way that it
 		makes writing and maintaining automated tests easy.
-		Good framework must be easy to understand, easy to use , easy to scale, reusable, easy to maintain and report.
+		Good framework must be easy to understand, easy to use , easy to scale, reusable, easy to maintain and report.--->kafana kazi interview'de %100 gelecek
 	We have 4 different problems about the automation framework?
 		1- What if the browser changes?
 		2- What if the url changes?

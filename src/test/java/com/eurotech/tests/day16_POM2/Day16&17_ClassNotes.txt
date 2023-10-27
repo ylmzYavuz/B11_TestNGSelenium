@@ -1,0 +1,77 @@
+Day 16-17 POM CLASS NOTES
+Page Object Model
+	What is Automation Framework?
+		Automation framework is integrated system, organization of packages, files, classes, tools in a way that it
+		makes writing and maintaining automated tests easy.
+		Good framework must be easy to understand, easy to use , easy to scale, reusable, easy to maintain and report.
+	We have 4 different problems about the automation framework?
+		1- What if the browser changes?
+		2- What if the url changes?
+		3- What if the credentials are changed?
+		4- What if any locator changes in application?
+
+	IQ-What OOP concept are u using in your framework?
+	POM-Page Object Model + Singleton Design Pattern
+
+	What is POM ?
+		Page Object Model (POM) is a Design Pattern.
+			The advantage of the model is that :
+				it reduces code duplication
+				improves test maintenance.
+			Under this model, for each web page in the application, there should be a corresponding Page Class.
+			This page class will identify the web elements of that web page and
+			Also contains Page methods which perform operations on those elements.
+	What is PageFactory?
+		The PageFactory Class in Selenium is an extension to the Page Object Model design pattern.
+ 		It is used to initialize the elements of the Page Object or instantiate the Page Objects itself.
+		It is used to initialize elements of a Page class without having to use
+			‘FindElement’
+			or ‘FindElements’.
+		Add a constructor to the BasePage class, which will call the PageFactory.
+		The initElements() method to initialize the elements in the class.
+		The initElements() method takes the driver object created in the test and initializes the elements declared in
+		the LoginPage class.
+		We can then directly call the methods on these elements,
+
+	@FindBy(id = "")
+		Annotation from selenium
+		Using the @FindBy annotation, we can locate the elements within the Page Factory class used to provide locator
+		for the web element.
+		We declared a public member for the login button element and used the @FindBy annotation, specifying the id as
+		a locator for finding this element on the page.
+			@FindBy(id = "rcc-confirm-button")
+    		public WebElement understandBtn;
+
+	@FindAll({ })
+		gives us the options to use multiple locators if  at least one of them is matching it will find the element.
+		OR logic applies here
+			@FindAll({
+            	@FindBy(id = "loginpage-input-email"),
+            	@FindBy(name = "email2")
+    		})
+		    public WebElement usernameInput2;
+
+	@FindBys({ })
+		If all locators are matching with element then it will return it.
+		AND logic applies here
+			@FindBys({
+            	@FindBy(id = "loginpage-input-email"),
+            	@FindBy(name = "email3")
+    		})
+	    	public WebElement usernameInput3;
+
+	@FindBy()
+ 		We can locate LİST element following format
+ 			@FindBy(css = ".menu-list")
+	    	public List<WebElement> menuList;
+
+
+	Advantages of Page Object Model:
+		According to Page Object Model, we should keep our tests and element locators separately, this will keep code
+		clean and easy to understand and maintain.
+		The Page Object approach makes test automation framework programmer friendly, more durable and comprehensive.
+		Another important advantage is our Page Object Repository is Independent of Automation Tests. Keeping separate
+		repository for page objects helps us to use this repository for different purposes with different frameworks
+		like, we are able to integrate this repository with other tools like JUnit as well as with TestNG/Cucumber/etc.
+		Test cases become short and optimized as we are able to reuse page object methods in the POM classes.
+		Any change in UI can easily be implemented, updated and maintained into the Page Objects and Classes.

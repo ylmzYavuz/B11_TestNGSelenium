@@ -33,11 +33,11 @@ public class AnotherLoginTest extends TestBase {
 
     public void t_singletonReview() throws InterruptedException {
 
-        WebDriver driver = Driver.get();
-        WebDriver driver1 =Driver.get();
+        WebDriver driver1= Driver.get(); // open the chrome
+        Thread.sleep(3000);
+        WebDriver driver2= Driver.get(); // goes on same chrome
 
         driver.get("https://www.google.de/");
-        Thread.sleep(2000);
         driver1.findElement(By.name("q")).sendKeys("selenium");
 
     }

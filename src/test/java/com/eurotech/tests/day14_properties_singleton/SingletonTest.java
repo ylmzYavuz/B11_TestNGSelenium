@@ -26,7 +26,7 @@ public class SingletonTest {
 
     public void test2() {
        WebDriver driver=WebDriverFactory.getDriver("chrome");
-        //WebDriver driver = Driver.get();
+       //WebDriver driver = Driver.get();
 
         driver.get("https://www.amazon.co.uk/");
         driver.get(ConfigurationReader.get("url"));
@@ -35,15 +35,15 @@ public class SingletonTest {
     @Test
 
     public void test3() {
-        WebDriver driver=WebDriverFactory.getDriver("chrome");
-        //WebDriver driver = Driver.get();
+        //WebDriver driver=WebDriverFactory.getDriver("chrome");
+        WebDriver driver = Driver.get();
         driver.get(ConfigurationReader.get("url"));
     }
     @Test
 
     public void test4() {
-        WebDriver driver=WebDriverFactory.getDriver("chrome");
-        //WebDriver driver = Driver.get();
+        //WebDriver driver=WebDriverFactory.getDriver("chrome");
+        WebDriver driver = Driver.get();
 
         driver.get("https://www.amazon.co.uk/");
     }

@@ -1,0 +1,81 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!--How to run specific package-->
+<!--
+<suite name="ETS_B11 Automation" verbose="1">
+    <test name="B11 testNG test">
+        <packages>
+            <package name="com.eurotech.tests.day11_waits_inSelenium"></package>
+        </packages>
+    </test>
+</suite>
+-->
+<!--How to run more than one package-->
+<!--
+<suite name="ETS_B11 Automation" verbose="1">
+    <test name="B11 testNG test">
+        <packages>
+            <package name="com.eurotech.tests.day11_waits_inSelenium"></package>
+            <package name="com.eurotech.tests.day15_POM1"></package>
+        </packages>
+    </test>
+</suite>
+-->
+<!--How to run all package-->
+<!--
+<suite name="ETS_B11 Automation" verbose="1">
+    <test name="B11 testNG test">
+        <packages>
+            <package name="com.eurotech.tests.*"></package>
+        </packages>
+    </test>
+</suite>
+-->
+<!--How to run specific class-->
+<!--
+<suite name="ETS_B11 Automation" verbose="1">
+    <test name="B11 testNG test">
+        <classes>
+            <class name="com.eurotech.tests.day15_POM1.NegativeLoginTest"></class>
+        </classes>
+    </test>
+</suite>
+-->
+<!--How to run more than one class-->
+<!--
+<suite name="ETS_B11 Automation" verbose="1">
+    <test name="B11 testNG test">
+        <classes>
+            <class name="com.eurotech.tests.day15_POM1.NegativeLoginTest"></class>
+            <class name="com.eurotech.tests.day13_webTables.HoverTask"></class>
+        </classes>
+    </test>
+</suite>
+-->
+<!--How to run specific test in the class-->
+<!--
+<suite name="ETS_B11 Automation" verbose="1">
+    <test name="B11 testNG test">
+        <classes>
+            <class name="com.eurotech.tests.day12_actions_jse_fileUpload.ActionsTest">
+                <methods>
+                    <include name="dragAndDrop"></include>
+                    <include name="rightClick"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+-->
+<!--How to run all test cases in one class without one-->
+<suite name="B11 Automation" verbose="1">
+    <test name="B11 testNG test">
+        <classes>
+            <class name="com.eurotech.tests.day12_actions_jse_fileUpload.ActionsTest">
+                <methods>
+                    <exclude name="rightClick"></exclude>
+                    <exclude name="dragAndDrop"></exclude>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

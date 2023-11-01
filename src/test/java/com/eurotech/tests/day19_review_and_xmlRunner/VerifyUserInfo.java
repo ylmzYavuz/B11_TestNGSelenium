@@ -44,7 +44,7 @@ public class VerifyUserInfo extends TestBase {
 
         //2. way
         String expectedMessage = "Welcome Teacher";
-        extentLogger.info("Verify that login is successful from Dashboard page and message is"+expectedMessage);
+        extentLogger.info("Verify that login is successful from Dashboard page and message is "+expectedMessage);
         String actualMessage=dashboardPage.welcomeMessage.getText();
         Assert.assertEquals(actualMessage,expectedMessage);
 

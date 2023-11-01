@@ -1,0 +1,51 @@
+Day18_ClassNotes TestNG Extent Report | Screenshot
+
+	Why do we need to report ?
+		To collect the test results.
+		To send the results to related people/business side.
+
+	Why is the report important ?
+		The business side does NOT see your code or test framework.
+		They probably don’t understand.
+		They will follow your test work with your report.
+
+	What should be in the report ?
+		Test name, Tester name, Browser, Test Steps (Admin/User), Test Data, Date and Time,
+		Operating System, Result, if it is failed we need to understand why it is failed.
+
+	HTML reporting
+		A good bug report must have;
+			1. Definition
+			2. Bug Reproduce Steps
+			3. Expected and Actual Results
+			4. Test Data
+			5. Screenshot/Evidence and exception
+
+		We will setup only once and each time we will use it with all test cases
+			Like —> TestBase, before method etc.
+
+		Where should be the result in the framework ?
+			In a folder inside the project
+
+		We need report tool (TestNG report)
+			mvnrepository (Individually) but normally Company will provide
+
+		How can we add tool or library in the framework ?
+			pom.xml file --> If you want to add some features to your framework you need to find its dependency
+			maven repository --> Where we can find the library
+
+		When we use testNG/Junit with selenium, we can use reporting tools such as Allure and ExtentReports.
+			go to —> https://mvnrepository.com/
+			write in to searchbox —> ExtentReports
+			choose —> ExtentReports→  com.aventstack » extentreports
+			choose —> 4.0.9 (Stable version)
+			take dependency under maven and
+			go to project pom.xml
+			past inside the —> dependencies
+			update maven
+
+		How can we see report & screenshots?
+			We can see inside the folder that we created.
+
+		How can we see screenshots
+			We can see inside the folder that we created.

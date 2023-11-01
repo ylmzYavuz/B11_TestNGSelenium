@@ -1,5 +1,7 @@
 package com.eurotech.pages;
 
+import com.eurotech.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,5 +17,13 @@ public class DashboardPage extends BasePage{
     public List<WebElement> dashboardList;
     @FindBy(id = "post-form-btn")
     public WebElement submitBtn;
+
+    @FindBy(xpath = "(//tbody)[1]/tr[1]/td[2]") //*[text()='Test Automation Engineer']
+    public WebElement jobTitle;
+
+    // same locator type with base menu so we can use navigateToMenu() method
+   /** public void dashboardMenu(String menuName){//interwiev de cok etkileyici olabilir
+        Driver.get().findElement(By.xpath("//*[text()='"+menuName+"']")).click();
+    }*/
 }
 

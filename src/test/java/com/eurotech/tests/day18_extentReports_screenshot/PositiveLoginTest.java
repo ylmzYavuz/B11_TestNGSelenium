@@ -15,8 +15,8 @@ public class PositiveLoginTest extends TestBase {
 
     @Test
     public void positiveLoginStudent() {
-        extentLogger = report.createTest("Psitive Login test With Student Credentials");
-        extentLogger.info("Go To"+ ConfigurationReader.get("url"));
+        extentLogger = report.createTest("Positive Login test With Student Credentials");
+        extentLogger.info("Go To"+ ConfigurationReader.get("url")+"website");
         driver.get(ConfigurationReader.get("url"));
         extentLogger.info("Use student's credentials to log in");
         loginPage.loginAsStudent();
@@ -26,8 +26,8 @@ public class PositiveLoginTest extends TestBase {
     }
     @Test
     public void positiveLoginTeacher() {
-        extentLogger = report.createTest("Psitive Login test With Teacher Credentials");
-        extentLogger.info("Go To"+ ConfigurationReader.get("url"));
+        extentLogger = report.createTest("Positive Login test With Teacher Credentials");
+        extentLogger.info("Go To"+ ConfigurationReader.get("url")+"website");
         driver.get(ConfigurationReader.get("url"));
         extentLogger.info("Use teacher's credentials to log in");
         loginPage.loginAsTeacher();

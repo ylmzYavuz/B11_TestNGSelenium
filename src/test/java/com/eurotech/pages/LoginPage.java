@@ -43,7 +43,7 @@ public class LoginPage extends BasePage {
     //////////////////////////////////////////////////////////
 
 
-    public void login() {
+    public void login() {//tercih edilen
         String email=ConfigurationReader.get("emailTeacher");
         String password=ConfigurationReader.get("passwordTeacher");
 
@@ -52,7 +52,7 @@ public class LoginPage extends BasePage {
         userPasswordInput.sendKeys(password);
         submitBtn.click();
     }
-    public void login(String email,String password) {
+    public void login(String email,String password) {//tercih edilen
 
         understandBtn.click();
         userEmailInput.sendKeys(email);
@@ -60,7 +60,7 @@ public class LoginPage extends BasePage {
         submitBtn.click();
     }
 
-    public void loginAsTeacher() {
+    public void loginAsTeacher() {//tavsiye edilmez
         String email=ConfigurationReader.get("emailTeacher");
         String password=ConfigurationReader.get("passwordTeacher");
 
@@ -69,7 +69,7 @@ public class LoginPage extends BasePage {
         userPasswordInput.sendKeys(password);
         submitBtn.click();
     }
-    public void loginAsStudent() {
+    public void loginAsStudent() {//tavsiye edilmez
         String email=ConfigurationReader.get("emailStudent");
         String password=ConfigurationReader.get("passwordStudent");
 

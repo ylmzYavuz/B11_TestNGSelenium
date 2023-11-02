@@ -46,13 +46,6 @@ public class StaleElement extends TestBase {
             passwordInput = driver.findElement(By.name("password"));
             passwordInput.sendKeys("Test1234");
         }
-
-
-
-
         //StaleElementReferenceException: stale element reference: stale element not found
-
     }
-
-
 }

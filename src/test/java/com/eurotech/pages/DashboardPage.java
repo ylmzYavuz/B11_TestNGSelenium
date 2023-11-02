@@ -18,7 +18,7 @@ public class DashboardPage extends BasePage{
     @FindBy(id = "post-form-btn")
     public WebElement submitBtn;
 
-    @FindBy(xpath = "(//tbody)[1]/tr[1]/td[2]") //*[text()='Test Automation Engineer']
+    @FindBy(xpath = "(//tbody)[1]/tr[2]/td[2]") //*[text()='Test Automation Engineer']
     public WebElement jobTitle;
 
     // same locator type with base menu so we can use navigateToMenu() method

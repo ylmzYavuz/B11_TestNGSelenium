@@ -25,5 +25,15 @@ public class DashboardPage extends BasePage{
    /** public void dashboardMenu(String menuName){//interwiev de cok etkileyici olabilir
         Driver.get().findElement(By.xpath("//*[text()='"+menuName+"']")).click();
     }*/
+
+   /*public String getTitle(String title){
+       return Driver.get().findElement(By.xpath("//td[text()='"+title+"']")).getText();
+   }
+   public String getCompany(String company){
+       return Driver.get().findElement(By.xpath("//td[text()='"+company+"']")).getText();
+   }*/
+   public String getTextCommen(String element){//daha kullanisli
+       return Driver.get().findElement(By.xpath("//td[text()='"+element+"']")).getText();
+   }
 }
 
